@@ -1,0 +1,4 @@
+*.iso
+BOOT/
+output/
+user-data.yml
