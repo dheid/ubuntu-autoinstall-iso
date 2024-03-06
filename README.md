@@ -18,7 +18,13 @@ cp user-data.yml.example user-data.yml
 You can create a password using `mkpasswd`, e.g.
 
 ```bash
-mkpasswd -m sha-512
+mkpasswd --method=SHA-512 --rounds=500000
+```
+
+If you want to generate SSH keys, I recommend you to use
+
+```bash
+ssh-keygen -t ed25519 -f key -C infra
 ```
 
 The default Ubuntu image is Ubuntu Server 22.04 (Jammy). You can also use another Ubuntu image by adapting the variable
@@ -32,3 +38,8 @@ After that just run
 
 It will download the ISO, put its contents to the directory `output`, move the boot images to the folder `BOOT`,
 copy the user data file to a server subdirectory and create the new ISO file.
+
+More information:
+
+- [Autoinstall configuration reference manual](https://canonical-subiquity.readthedocs-hosted.com/en/latest/reference/autoinstall-reference.html)
+- [cloud-init Module reference](https://cloudinit.readthedocs.io/en/latest/reference/modules.html)
