@@ -16,9 +16,7 @@ if ! command -v xorriso &> /dev/null; then
 fi
 
 readonly image_filename=jammy-live-server-amd64.iso
-if [ ! -e ${image_filename} ]; then
-    wget "https://cdimage.ubuntu.com/ubuntu-server/jammy/daily-live/current/${image_filename}"
-fi
+curl -z ${image_filename} -o ${image_filename} "https://cdimage.ubuntu.com/ubuntu-server/jammy/daily-live/current/${image_filename}"
 
 readonly output_dir=output
 if [ ! -d ${output_dir} ]; then
